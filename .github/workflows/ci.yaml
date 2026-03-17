@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: get short SHA
-        run: echo "SHORT_SHA={{GITHUB_SHA::6}" >> $GITHUB_ENV
+        run: echo "SHORT_SHA=${GITHUB_SHA::6}" >> $GITHUB_ENV
     
       -
         name: Build and push

@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 @app.route('/api/v1/details')
 
+
 def details():
     return jsonify({
         'time': datetime.datetime.now(),

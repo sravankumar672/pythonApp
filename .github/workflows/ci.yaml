@@ -23,4 +23,4 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           push: true
-          tags: sravankumar672/pythonapp:${GITHUB_SHA::6}
+          tags: sravankumar672/pythonapp:${{ github.sha }}

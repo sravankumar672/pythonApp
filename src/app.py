@@ -15,6 +15,7 @@ def details():
     )
 @app.route('/api/v1/healthz')
 
+
 def health():
     return jsonify({
         'status': 'up'

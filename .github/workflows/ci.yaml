@@ -45,4 +45,4 @@ jobs:
           --grpc-web --insecure \
           --username admin \
           --password 4xQCCK7dE3tsZ5zI
-          argocd app sync python-app
+          argocd app sync argocd/pythonapp

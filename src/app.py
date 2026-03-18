@@ -13,6 +13,7 @@ def details():
         'message': 'You are going with great pace sir really..'
     }
     )
+
 @app.route('/api/v1/healthz')
 
 def health():

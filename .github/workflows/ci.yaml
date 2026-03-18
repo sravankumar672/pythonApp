@@ -38,10 +38,10 @@ jobs:
 
       - name: Modify Values
         run: |
-            echo ${{needs.ci.outputs.commit_id}}
+            export TAG=${{needs.ci.outputs.commit_id}}
             sudo apt-get update
             sudo apt-get install -y yq
-            yq -Yi '.image.tag = "${{needs.ci.outputs.commit_id}}"' charts/python-app/values.yaml
+            yq -Yi '.image.tag = \"$TAG\"' charts/python-app/values.yaml
 
       
       - name: argo cd install
@@ -58,4 +58,5 @@ jobs:
           --grpc-web --insecure \
           --username admin \
           --password 4xQCCK7dE3tsZ5zI
+          argocd app set argocd/pythonapp --helm-set image.tag=$TAG
           argocd app sync argocd/pythonapp

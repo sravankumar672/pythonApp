@@ -9,6 +9,8 @@ on:
 
 jobs:
   ci:
+    outputs:
+        commit_id: ${{ env.SHORT_SHA }} 
     runs-on: ubuntu-latest
     steps:
       -
@@ -32,6 +34,14 @@ jobs:
     needs: ci
     runs-on: self-hosted
     steps:
+
+      - name: Modify Values
+        run: |
+            echo ${{needs.ci.outputs.commit_id}}
+            pip install yq
+            yq -Yi '.image.tag = "${{needs.ci.outputs.commit_id}}"' charts/python-app/values.yaml
+
+      
       - name: argo cd install
         run: |
             curl -ksSL -o argocd https://argocd-server.argocd/download/argocd-linux-arm64

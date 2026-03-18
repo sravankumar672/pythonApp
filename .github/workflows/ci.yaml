@@ -58,5 +58,6 @@ jobs:
           --grpc-web --insecure \
           --username admin \
           --password 4xQCCK7dE3tsZ5zI
+          echo $TAG
           argocd app set argocd/pythonapp --helm-set image.tag=$TAG
           argocd app sync argocd/pythonapp

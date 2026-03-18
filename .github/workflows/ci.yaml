@@ -46,9 +46,10 @@ jobs:
       
       - name: argo cd install
         run: |
-            curl -ksSL -o argocd https://argocd-server.argocd/download/argocd-linux-arm64
-            chmod +x argocd
-            sudo mv ./argocd /usr/local/bin/
+            curl -ksSL -o /tmp/argocd https://argocd-server.argocd/download/argocd-linux-arm64
+            chmod +x /tmp/argocd
+            mv /tmp/argocd $HOME/argocd
+            echo "$HOME" >> $GITHUB_PATH
 
       - name: Login to ArgoCd
         shell: bash

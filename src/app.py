@@ -14,7 +14,6 @@ def details():
     }
     )
 
-
 @app.route('/api/v1/healthz')
 
 

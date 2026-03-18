@@ -34,7 +34,7 @@ jobs:
     steps:
       - name: argo cd install
         run: |
-            curl -o -sSL -k argocd https://argocd-server.argocd/download/argocd-linux-arm64
+            curl -ksSL -o argocd https://argocd-server.argocd/download/argocd-linux-arm64
             chmod +x argocd
             sudo mv ./argocd /usr/local/bin/
 
